@@ -16,11 +16,15 @@ class User < ActiveRecord::Base
   validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
 
   # for use in authorizing with CanCan
-  ROLES = [['Administrator', :admin],['Instructor', :instructor]]
+  ROLES = [['Administrator', :admin], ['Instructor', :instructor]]
 
   def role?(authorized_role)
     return false if role.nil?
     role.downcase.to_sym == authorized_role
+  end
+  
+  def self.authenticate(username, password)
+    find_by_username(username).try(:authenticate, password)
   end
 
 end
