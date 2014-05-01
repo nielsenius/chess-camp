@@ -1,0 +1,26 @@
+<li class="has-dropdown">
+  <a href="">Admin Tools</a>
+  <ul class="dropdown">
+		
+		<!-- camps -->
+		<% if request.original_url.include?('camps') %>
+    	<li class="active"><%= link_to('Camps', camps_path) %></li>
+		<% else %>
+			<li><%= link_to('Camps', camps_path) %></li>
+		<% end %>
+		
+		<!-- curriculums -->
+		<% if request.original_url.include?('curriculums') %>
+    	<li class="active"><%= link_to('Curriculums', curriculums_path) %></li>
+		<% else %>
+			<li><%= link_to('Curriculums', curriculums_path) %></li>
+		<% end %>
+		
+		<!-- instructors -->
+		<% if request.original_url.include?('instructors') %>
+    	<li class="active"><%= link_to('Instructors', instructors_path) %></li>
+		<% else %>
+			<li><%= link_to('Instructors', instructors_path) %></li>
+		<% end %>
+  </ul>
+</li>

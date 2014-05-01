@@ -7,24 +7,21 @@
       </ul>
 			<section class="top-bar-section">
 		    <ul class="right">
-					<!-- camps tab -->
-					<% if request.original_url.include?('camps') %>
-		      	<li class="active"><%= link_to('Camps', camps_path) %></li>
-					<% else %>
-						<li><%= link_to('Camps', camps_path) %></li>
-					<% end %>
-					<!-- curriculums tab -->
-					<% if request.original_url.include?('curriculums') %>
-		      	<li class="active"><%= link_to('Curriculums', curriculums_path) %></li>
-					<% else %>
-						<li><%= link_to('Curriculums', curriculums_path) %></li>
-					<% end %>
-					<!-- instructors tab -->
-					<% if request.original_url.include?('instructors') %>
-		      	<li class="active"><%= link_to('Instructors', instructors_path) %></li>
-					<% else %>
-						<li><%= link_to('Instructors', instructors_path) %></li>
-					<% end %>
+										
+				  <% if logged_in? %>
+						<% if current_user.role == 'admin' %>
+							<%= render "partials/admin_tools" %>
+						<% else %>
+							<%= render "partials/instructor_tools" %>
+						<% end %>
+		      	<li class="has-form">
+							<%= link_to("Logout, #{current_user.instructor.proper_name}", logout_path, class: "small button") %>
+						</li>
+				  <% else %>
+		      	<li class="has-form">
+							<%= link_to('Login', login_path, class: "small button") %>
+						</li>
+				  <% end %>
 		    </ul>
 		  </section>
     </nav>
