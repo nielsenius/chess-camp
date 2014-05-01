@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="small-12 columns">
+    <%= render "partials/flash" %>
+  </div>
+</div>
+<% if request.original_url.match(/\/$|home$/) %>
+	<%= yield %>
+<% else %>
+	<div class="row">
+	  <div class="small-12 columns">
+	    <%= yield %>
+	  </div>
+	</div>
+<% end %>

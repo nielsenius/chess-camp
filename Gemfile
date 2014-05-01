@@ -15,9 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -52,6 +49,12 @@ gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.1.5'
+
+# Use a gem to create nested forms
+gem 'nested_form'
+
+# Use a gem for authorization
+gem 'cancancan', '~> 1.7'
 
 # Additional gems that are very useful in Rails development
 group :development do
