@@ -3,11 +3,14 @@
     <%= render "partials/flash" %>
   </div>
 </div>
+
 <% if request.original_url.match(/\/$|home$/) %>
-	<%= yield %>
+	<div id="main_content">
+		<%= yield %>
+	</div>
 <% else %>
 	<div class="row">
-	  <div class="small-12 columns">
+	  <div class="small-12 columns" id="main_content">
 	    <%= yield %>
 	  </div>
 	</div>

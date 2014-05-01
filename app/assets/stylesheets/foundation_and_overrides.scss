@@ -1251,32 +1251,43 @@ select.date { width: 95px; }
 #curriculum_description { height: 7rem; }
 
 #cover {
-	overflow: hidden;
-	position: relative;
-	height: 50%;
+	// overflow: hidden;
+	// position: relative;
+	// max-height: 50%;
+	padding-bottom: 450px;
 }
 
 #cover img {
 	width: 100%;
+	position: absolute;
+  clip: rect(auto auto 600px auto);
+	top: 50px;
 }
 
 #welcome {
-	position: absolute;
-	padding: 10%;
+	//position: absolute;
 	color: white;
+	z-index: 1;
+	top: 80px;
 	font-family: "Lucida Grande", sans-serif;
 	font-size: 64px;
 }
 
-//#container {
-//	min-height: 100%;
-//	position: relative;
-//}
+#mission {
+	color: white;
+	background-color: #804000;
+	height: 100px;
+}
+
+#container {
+	min-height: 100%;
+	position: relative;
+}
 
 #main_content {
 	padding-bottom: 112px; /* Height of the footer */
-	min-height: 100%;
-	//position: relative;
+	// min-height: 100%;
+	// position: relative;
 }
 
 #footer {
@@ -1291,11 +1302,6 @@ select.date { width: 95px; }
 //	a:visited { color: $primary-color; }
 	a:hover { text-decoration: underline; }
 	a:active { text-decoration: underline; }
-}
-
-#mission {
-	color: white;
-	background-color: #804000;
 }
 
 @import 'foundation';
