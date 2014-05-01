@@ -2,39 +2,30 @@
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
-          <%= link_to image_tag('amcc_logo.png'), home_path %>
+					<%= link_to image_tag('logo.png'), home_path %>
         </li>
       </ul>
-      <section class="top-bar-section">
-        <ul class="left">
-          <!-- options for curriculums -->
-          <li class="has-dropdown">
-            <%= link_to "Curriculums", curriculums_path %>
-            <ul class="dropdown">
-              <li><%= link_to "List Curriculums", curriculums_path %></li>
-              <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
-            </ul>
-          </li>
-
-          <!-- options for camps -->
-          <li class="has-dropdown">
-            <%= link_to "Camps", camps_path %>
-            <ul class="dropdown">
-              <li><%= link_to "List Camps", camps_path %></li>
-              <li><%= link_to "Add a Camp", new_camp_path %></li>
-            </ul>
-          </li>
-
-          <!-- options for instructors -->
-          <li class="has-dropdown">
-            <!-- <a href="#">Instructors</a> -->
-            <%= link_to "Instructors", instructors_path %>
-            <ul class="dropdown">
-              <li><%= link_to "List Instructors", instructors_path %></li>
-              <li><%= link_to "Add an Instructor", new_instructor_path %></li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+			<section class="top-bar-section">
+		    <ul class="right">
+					<!-- camps tab -->
+					<% if request.original_url.include?('camps') %>
+		      	<li class="active"><%= link_to('Camps', camps_path) %></li>
+					<% else %>
+						<li><%= link_to('Camps', camps_path) %></li>
+					<% end %>
+					<!-- curriculums tab -->
+					<% if request.original_url.include?('curriculums') %>
+		      	<li class="active"><%= link_to('Curriculums', curriculums_path) %></li>
+					<% else %>
+						<li><%= link_to('Curriculums', curriculums_path) %></li>
+					<% end %>
+					<!-- instructors tab -->
+					<% if request.original_url.include?('instructors') %>
+		      	<li class="active"><%= link_to('Instructors', instructors_path) %></li>
+					<% else %>
+						<li><%= link_to('Instructors', instructors_path) %></li>
+					<% end %>
+		    </ul>
+		  </section>
     </nav>
   </div>

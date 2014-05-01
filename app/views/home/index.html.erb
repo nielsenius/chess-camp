@@ -12,11 +12,39 @@
 <div id="mission">
 	<div class="row">
 	  <div class="small-12 columns">
-			A&amp;M Chess Camps are the finest chess camps in Western Pennsylvania. Our mission is to provide children ages 5 to 18 the opportunity to reach their goals at the chess board. Our instructors are the best in the business and we offer a multitude of curriculums, from basic tactics to endgame scenarios.
+			<h1>Our Mission</h1>
+			<p>
+				A&amp;M Chess Camps are the finest chess camps in Western Pennsylvania. Our mission is to provide children ages 5 to 18 the opportunity to reach their goals at the chess board. Our instructors are the best in the business and we offer a multitude of curriculums, from basic tactics to endgame scenarios.
+			</p>
 	  </div>
 	</div>
 </div>
 
-<div id="camps">
+<div class="row">
+	<div class="small-12 columns" id="index_camps">
+		<h1>Upcoming Camps</h1>
+		<table class="table">
+		
+		  <tr>
+		    <th width="260">Name</th>
+		    <th width="120">Start On</th>
+		    <th width="120">Time</th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+
+		<% @upcoming_camps.each do |camp| %>
+		  <tr>
+		    <td><%= link_to camp.name, camp_path(camp) %></td>
+		    <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
+		    <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
+		  </tr>
+		<% end %>
 	
+		</table>
+		<!-- Add the pagination using will_paginate gem -->
+		<span class="paginate">
+		<%= will_paginate @upcoming_camps, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+		</span>
+	</div>
 </div>

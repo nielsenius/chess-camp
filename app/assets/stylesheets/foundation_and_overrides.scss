@@ -37,8 +37,8 @@
 
 // We use these to control various global styles
 // $body-bg: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-color: black;
+$body-font-family: Georgia, serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -51,8 +51,8 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
+$primary-color: #804000;
+$secondary-color: scale-color(#804000, $lightness: 70%);
 // $alert-color: #f04124;
 $success-color: #B5EBC9;
 // $warning-color: #f08a24;
@@ -113,10 +113,10 @@ $success-color: #B5EBC9;
 // $include-html-type-classes: $include-html-classes;
 
 // We use these to control header font styles
-// $header-font-family: $body-font-family;
+$header-font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 // $header-font-weight: 300;
 // $header-font-style: normal;
-// $header-font-color: #222;
+$header-font-color: $body-font-color;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
@@ -1029,7 +1029,7 @@ $panel-bg: scale-color(#B5E7F5, $lightness: 50%);
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-$table-even-row-bg: #FAF2F0;
+$table-even-row-bg: scale-color(#804000, $lightness: 90%);
 
 // These control the table cell border style
 $table-border-style: none;
@@ -1123,7 +1123,7 @@ $table-margin-bottom: rem-calc(25);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #F7EAE6;
+$topbar-bg-color: black;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1135,8 +1135,8 @@ $topbar-margin-bottom: 20px;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: #F7EAE6;
-$topbar-dropdown-link-color: #000;
+// $topbar-dropdown-bg: #F7EAE6;
+// $topbar-dropdown-link-color: #000;
 // $topbar-dropdown-link-bg: #F7EAE6;
 // $topbar-dropdown-link-weight: normal;
 // $topbar-dropdown-toggle-size: 5px;
@@ -1144,17 +1144,17 @@ $topbar-dropdown-link-color: #000;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #000;
-$topbar-link-color-hover: #333;
+$topbar-link-color: white;
+$topbar-link-color-hover: black;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
 $topbar-link-font-size: rem-calc(18);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg-hover: #FAF2F0;
+$topbar-link-bg-hover: white;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
-// $topbar-link-font-family: $body-font-family;
+$topbar-link-font-family: $header-font-family;
 
 // $topbar-button-font-size: 0.75rem;
 
@@ -1213,6 +1213,8 @@ $topbar-link-bg-hover: #FAF2F0;
 //  border: 0px;
 //  text-decoration: none;
 //}
+
+
 
 #copy {
   margin: 7px auto;
@@ -1274,9 +1276,25 @@ select.date { width: 95px; }
 }
 
 #mission {
-	color: white;
+	height: 300px;
 	background-color: #804000;
-	height: 100px;
+	color: white;
+	
+	h1 {
+		padding-top: 20px;
+		color: white;
+		text-align: center;
+	}
+	
+	p {
+		padding-top: 20px;
+		font-size: 20px;
+		text-align: justify;
+	}
+}
+
+#index_camps {
+	padding: 20px 0px 40px 0px;
 }
 
 #container {
@@ -1296,7 +1314,7 @@ select.date { width: 95px; }
   bottom: 0;
   width: 100%;
   height: 112px; /* Height of the footer */
-	background-color: white;
+	background-color: $secondary-color;
 	color: black;
 //	a:link { color: $primary-color; }
 //	a:visited { color: $primary-color; }
