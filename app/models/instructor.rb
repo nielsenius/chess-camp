@@ -1,11 +1,13 @@
 class Instructor < ActiveRecord::Base
   include ChessCampHelpers
-  mount_uploader :picture, PictureUploader
-
+  
   # relationships
   has_many :camp_instructors
   has_many :camps, through: :camp_instructors
   has_one :user
+  
+  mount_uploader :picture, PictureUploader
+  accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:username].blank? }, allow_destroy: true
 
   # validations
   validates_presence_of :first_name, :last_name, :phone
@@ -17,14 +19,10 @@ class Instructor < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :needs_bio, -> { where('bio IS NULL') }
-  # scope :needs_bio, -> { where(bio: nil) }  # this also works...
 
   # class methods
   def self.for_camp(camp)
-    # the 'instructive way'... (which I told you if you asked me for help)
-    CampInstructor.where(camp_id: camp.id).map{ |ci| ci.instructor }
-    # the easy way... 
-    # camp.instructors
+    camp.instructors
   end
 
   # callbacks
