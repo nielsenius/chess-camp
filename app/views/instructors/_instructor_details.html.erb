@@ -13,6 +13,12 @@
 
 <strong>Biography</strong><br />
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
+	
+<strong>Role:</strong>
+  <%= @instructor.user.nil? ? "N/A" : @instructor.user.role %><br /><br />
+	
+<strong>Username:</strong>
+  <%= @instructor.user.username.nil? ? "N/A" : @instructor.user.username %><br /><br />
 
 
 <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;

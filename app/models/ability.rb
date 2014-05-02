@@ -11,53 +11,42 @@ class Ability
       can :manage, :all
       
     elsif user.role? :instructor
-      # can see a list of all users
-      can :index, User
-      
-      # they can read their own profile
-      can :show, User do |u|  
-        u.id == user.id
-      end
-      # they can update their own profile
-      can :update, User do |u|  
-        u.id == user.id
+      # can view their own details
+      can :show, Instructor do |i|
+        i.id == user.instructor.id
       end
       
-      # they can read their own projects' data
-      can :read, Project do |this_project|  
-        my_projects = user.projects.map(&:id)
-        my_projects.include? this_project.id 
-      end
-      # they can create new projects for themselves
-      can :create, Project
-      
-      # they can update the project only if they are the manager (creator)
-      can :update, Project do |this_project|
-        managed_projects = user.projects.map{|p| p.id if p.manager_id == user.id}
-        managed_projects.include? this_project.id
-      end
-            
-      # they can read tasks in these projects
-      can :read, Task do |this_task|  
-        project_tasks = user.projects.map{|p| p.tasks.map(&:id)}.flatten
-        project_tasks.include? this_task.id 
+      # can see lists of students in their camps
+      can :read, Student do |s|
+        camp_students = user.instructor.camps.students.map(&:id)
+        camp_students.include? s.id
       end
       
-      # they can update tasks in these projects
-      can :update, Task do |this_task|  
-        project_tasks = user.projects.map{|p| p.tasks.map(&:id)}.flatten
-        project_tasks.include? this_task.id 
+      # can their edit info, except role
+      can :update, Instructor do |i|
+        i.id == user.instructor.id
       end
+      cannot :update, User, [:role]
       
-      # they can create new tasks for these projects
-      can :create, Task do |this_task|  
-        my_projects = user.projects.map(&:id)
-        my_projects.include? this_task.project_id  
-      end
-
     else
-      # guests can only read domains covered (plus home pages)
-      can :read, Domain
+      # can read home pages
+      can :read, Home
+      
+      # can read active, upcoming camps
+      can :read, Camp do |c|
+        c.active #&& Camp.upcoming.map(&:id).include? c.id
+      end
+      
+      # can read address and map of camps
+      can :read, Location
+      cannout :read, Location, [:max_capacity]
+      
+      # can read camp instructors' bios and photos
+      can :read, Instructor, [:first_name, :last_name, :bio, :picture]
+      can :read, Instructor do |i|
+        Camp.upcoming.instructors.map(&:id).include? i.id
+      end
+      
     end
   end
 end

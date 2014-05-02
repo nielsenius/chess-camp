@@ -1,6 +1,7 @@
 class InstructorsController < ApplicationController
   include ActionView::Helpers::NumberHelper
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   def index
     @active_instructors = Instructor.active.alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -14,12 +15,13 @@ class InstructorsController < ApplicationController
 
   def new
     @instructor = Instructor.new
-    @instructor.user.build
+    @instructor.build_user
   end
 
   def edit
     # reformating the phone so it has dashes when displayed for editing (personal taste)
     @instructor.phone = number_to_phone(@instructor.phone)
+    @instructor.build_user if @instructor.user.nil?
   end
 
   def create

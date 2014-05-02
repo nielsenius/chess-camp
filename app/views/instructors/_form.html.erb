@@ -5,7 +5,7 @@
     <%= render partial: "instructor_fields", locals: { f: instructor_form } %>
 		
     <%= instructor_form.simple_fields_for :user do |user_form| %>
-      <%= render partial: "user_fields", locals: { f: user_form } %>
+      <%= render partial: "user_fields", locals: { f: user_form, instructor: @instructor } %>
     <% end %>
 		
     <div class="form-actions">
