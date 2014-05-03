@@ -1,0 +1,23 @@
+<h3>Location Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @location.name %><br /><br />
+
+<strong>Street 1:&nbsp;&nbsp;</strong> 
+  <%= @location.street_1 %><br /><br />
+
+<strong>Street 2:&nbsp;&nbsp;</strong> 
+	<%= @location.street_2.nil? ? "N/A" : @location.street_2 %><br /><br />
+
+<strong>City, State Zip:&nbsp;&nbsp;</strong> 
+  <%= "#{@location.city}, #{@location.state} #{@location.zip}" %><br /><br />
+
+<strong>Maximum Capacity:&nbsp;&nbsp;</strong> 
+  <%= @location.max_capacity %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @location.active ? "Yes" : "No" %><br /><br />
+
+
+
+<%# link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
+<%# link_to 'Destroy camp', camp_path(@camp), data: { confirm: 'Are you sure you want to permanently remove this camp from the system?' }, method: :delete, class: "button tiny radius alert" %>
