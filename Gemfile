@@ -56,6 +56,9 @@ gem 'nested_form'
 # Use a gem for authorization
 gem 'cancancan', '~> 1.7'
 
+# For use with datepicker
+gem 'jquery-ui-rails'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'

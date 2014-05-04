@@ -1,0 +1,20 @@
+<h3>Student Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @student.proper_name %><br /><br />
+
+<strong>Age:&nbsp;&nbsp;</strong> 
+  <%= @student.age.nil? ? "N/A" : @student.age %><br /><br />
+
+<strong>Date of Birth:&nbsp;&nbsp;</strong> 
+	<%= @student.date_of_birth.nil? ? "N/A" : @student.date_of_birth.strftime("%m/%d/%Y") %><br /><br />
+
+<strong>Rating:&nbsp;&nbsp;</strong> 
+  <%= @student.rating.zero? ? "Unrated" : @student.rating %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @student.active ? "Yes" : "No" %><br /><br />
+
+
+
+<%# link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
+<%# link_to 'Destroy camp', camp_path(@camp), data: { confirm: 'Are you sure you want to permanently remove this camp from the system?' }, method: :delete, class: "button tiny radius alert" %>

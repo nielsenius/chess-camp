@@ -30,7 +30,7 @@ class Ability
       
     else
       # can read home pages
-      can :read, Home
+      # can :read, Home
       
       # can read active, upcoming camps
       can :read, Camp do |c|
@@ -39,7 +39,7 @@ class Ability
       
       # can read address and map of camps
       can :read, Location
-      cannout :read, Location, [:max_capacity]
+      # cannot :read, Location, [:max_capacity]
       
       # can read camp instructors' bios and photos
       can :read, Instructor, [:first_name, :last_name, :bio, :picture]
