@@ -6,13 +6,13 @@
 			<table class="table">
 			  <tr>
 			    <th>Name</th>
-			    <th>Rating</th>
+			    <th>Start Date</th>
 			  </tr>
 
 				<% @registrations.each do |registration| %>
 				  <tr>
-				    <td><%= link_to registration.name, student_path(registration) %></td>
-				    <td><%= registration.rating.zero? ? "Unrated" : registration.rating %></td>
+				    <td><%= link_to registration.name, camp_path(registration) %></td>
+				    <td><%= registration.start_date.strftime('%m/%d/%y') %></td>
 				  </tr>
 				<% end %>
 			</table>

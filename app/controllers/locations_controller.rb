@@ -10,7 +10,6 @@ class LocationsController < ApplicationController
   end
 
   def show
-    # @camps = @location.camps.chronological.to_a
   end
 
   def new

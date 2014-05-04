@@ -1,4 +1,5 @@
-<% unless @inactive_camps.empty? %>
+<% if @inactive_camps.any? %>
+
   <div class="panel clearfix">
     <h5>Inactive Camps</h5>
     <ul class="side-nav">
@@ -7,4 +8,11 @@
       <% end %>
     </ul>
   </div>
+	
+<% else %>
+	
+  <div class="panel clearfix">
+    <h5>No Inactive Camps</h5>
+  </div>
+	
 <% end %>

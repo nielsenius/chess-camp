@@ -7,7 +7,7 @@ class Instructor < ActiveRecord::Base
   has_one :user
   
   mount_uploader :picture, PictureUploader
-  accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:username].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:username].blank? }, allow_destroy: true, update_only: true
 
   # validations
   validates_presence_of :first_name, :last_name, :phone

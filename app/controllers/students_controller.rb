@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-    # @camps = @student.camps.chronological.to_a
+    @registrations = @student.camps.chronological.to_a
   end
 
   def new
