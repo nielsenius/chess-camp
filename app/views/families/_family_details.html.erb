@@ -1,0 +1,20 @@
+<h3>Family Details</h3><br />
+<strong>Family Name:&nbsp;&nbsp;</strong> 
+  <%= @family.family_name %><br /><br />
+
+<strong>Parent First Name:&nbsp;&nbsp;</strong> 
+  <%= @family.parent_first_name.nil? ? "N/A" : @family.parent_first_name %><br /><br />
+
+<strong>Email:&nbsp;&nbsp;</strong> 
+	 <%= @family.email.nil? ? "N/A" : @family.email %><br /><br />
+
+<strong>Phone:&nbsp;&nbsp;</strong> 
+	<%= number_to_phone @family.phone %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @family.active ? "Yes" : "No" %><br /><br />
+
+
+
+<%# link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
+<%# link_to 'Destroy camp', camp_path(@camp), data: { confirm: 'Are you sure you want to permanently remove this camp from the system?' }, method: :delete, class: "button tiny radius alert" %>
