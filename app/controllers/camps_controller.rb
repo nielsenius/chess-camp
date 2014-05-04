@@ -12,6 +12,7 @@ class CampsController < ApplicationController
 
   def show
     @instructors = @camp.instructors.alphabetical.to_a
+    @registrations = @camp.students.alphabetical.to_a
   end
 
   def new
@@ -49,6 +50,6 @@ class CampsController < ApplicationController
     end
 
     def camp_params
-      params.require(:camp).permit(:curriculum_id, :cost, :start_date, :end_date, :time_slot, :max_students, :active, :instructor_ids => [])
+      params.require(:camp).permit(:curriculum_id, :cost, :start_date, :end_date, :time_slot, :max_students, :active, :location_id, instructor_ids: [])
     end
 end

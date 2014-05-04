@@ -11,7 +11,7 @@ class FamiliesController < ApplicationController
   end
 
   def show
-    # @camps = @family.camps.chronological.to_a
+    @children = @family.students.to_a
   end
 
   def new

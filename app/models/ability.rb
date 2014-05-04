@@ -18,7 +18,11 @@ class Ability
       
       # can see lists of students in their camps
       can :read, Student do |s|
-        camp_students = user.instructor.camps.students.map(&:id)
+        camps = user.instructor.camps
+        camp_students = []
+        camps.each do |camp|
+          camp_students << camp.students.map(&:id)
+        end
         camp_students.include? s.id
       end
       

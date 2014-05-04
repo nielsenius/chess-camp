@@ -1,0 +1,19 @@
+<% if @children.any? %>
+
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Registrations</h5>
+    <ul class="side-nav">
+      <% @children.each do |child| %>
+        <li><%= link_to child.first_name, student_path(child) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+
+  <div class="panel clearfix">
+    <h5>No Children</h5>
+  </div>
+	
+<% end %>

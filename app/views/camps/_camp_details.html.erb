@@ -17,6 +17,9 @@
 
 <strong>Time:&nbsp;&nbsp;</strong> 
   <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
+	
+<strong>Location:&nbsp;&nbsp;</strong> 
+  <%= @camp.location.name %><br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @camp.active ? "Yes" : "No" %><br /><br />

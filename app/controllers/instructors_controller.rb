@@ -57,7 +57,7 @@ class InstructorsController < ApplicationController
       if current_user && current_user.role?(:admin)
         params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes: [:username, :password, :password_confirmation, :instructor_id, :role, :active])
       else
-        params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active)
+        params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes: [:username, :password, :password_confirmation, :instructor_id])
       end
     end
 end
