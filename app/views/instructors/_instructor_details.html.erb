@@ -18,7 +18,7 @@
   <%= @instructor.user.nil? ? "N/A" : @instructor.user.role %><br /><br />
 	
 <strong>Username:</strong>
-  <%= @instructor.user.username.nil? ? "N/A" : @instructor.user.username %><br /><br />
+  <%= @instructor.user.nil? ? "N/A" : @instructor.user.username %><br /><br />
 
 
 <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
