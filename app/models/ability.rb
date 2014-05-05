@@ -34,15 +34,14 @@ class Ability
       
     else
       # can read home pages
-      # can :read, Home
       
       # can read active, upcoming camps
-      can :read, Camp do |c|
-        c.active #&& Camp.upcoming.map(&:id).include? c.id
+      can :show, Camp, Camp.upcoming do |c|
+        c.active
       end
       
       # can read address and map of camps
-      can :read, Location
+      # can :show, Location, 
       # cannot :read, Location, [:max_capacity]
       
       # can read camp instructors' bios and photos
