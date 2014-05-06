@@ -2,6 +2,15 @@
 
 <strong>Location Name:&nbsp;&nbsp;</strong>
   <%= @location.name %><br /><br />
-	
-<strong>Map:&nbsp;&nbsp;</strong>
+
+<strong>Street 1:&nbsp;&nbsp;</strong> 
+  <%= @location.street_1 %><br /><br />
+
+<strong>Street 2:&nbsp;&nbsp;</strong> 
+	<%= @location.street_2.nil? ? "N/A" : @location.street_2 %><br /><br />
+
+<strong>City, State Zip:&nbsp;&nbsp;</strong> 
+  <%= "#{@location.city}, #{@location.state} #{@location.zip}" %><br /><br />
+
+<strong>Map:</strong>
 	<%= image_tag @location.create_map_link %>

@@ -1,0 +1,30 @@
+<% if @registrations.any? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Registrations (<%= @registrations.count %>)</h5>
+    <ul class="side-nav">
+			<table class="table">
+			  <tr>
+			    <th>Name</th>
+			    <th>Age</th>
+					<th>Rating</th>
+			  </tr>
+
+				<% @registrations.each do |registration| %>
+				  <tr>
+				    <td><%= registration.name %></td>
+						<td><%= registration.age.nil? ? "Not Given" : registration.age %></td>
+				    <td><%= registration.rating.zero? ? "Unrated" : registration.rating %></td>
+				  </tr>
+				<% end %>
+			</table>
+    </ul>
+  </div>
+
+<% else %>
+
+  <div class="panel clearfix">
+    <h5>No Registrations</h5>
+  </div>
+	
+<% end %>
