@@ -14,6 +14,7 @@ ChessCamp::Application.routes.draw do
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/privacy', to: 'home#privacy', as: :privacy
   get 'home/camp_summary/:id', to: 'home#camp_summary', as: :camp_summary
+  
   get 'login', to: 'sessions#new', as: :login
   get 'logout', to: 'sessions#destroy', as: :logout
 
