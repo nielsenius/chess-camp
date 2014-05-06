@@ -20,7 +20,11 @@ class Location < ActiveRecord::Base
   # callbacks
   before_destroy :verify_that_never_used_for_camps
   before_validation :get_location_coordinates
-
+  
+  def create_map_link(zoom = 12, width = 800, height = 800)
+    map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap&sensor=false"
+  end
+  
   private
   def verify_that_never_used_for_camps
     self.camps.empty?

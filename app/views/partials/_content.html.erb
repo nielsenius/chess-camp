@@ -4,7 +4,7 @@
   </div>
 </div>
 
-<% if request.original_url.match(/\/$|home$|home?/) %>
+<% if request.original_url.match(/\/$|home$|home?/) && !request.original_url.match(/camp_summary/) %>
 	<div id="main_content">
 		<%= yield %>
 	</div>
