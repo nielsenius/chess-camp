@@ -1,0 +1,14 @@
+<%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
+   
+   <h3>Add Registration</h3>
+    
+        <%= f.input :camp_id, input_html: { value: @camp.id, class: "hidden" }, label: false %>
+        <%= f.input :student_id, collection: @eligible_students, prompt: "Select student..." %>
+        <%= f.input :payment_status, collection: %w[deposit full], prompt: "Select payment status..." %>
+        <%= f.input :points_earned, as: :integer %>
+
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+    </div>
+
+<% end %>

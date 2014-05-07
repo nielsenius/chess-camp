@@ -762,7 +762,7 @@ $button-margin-bottom: rem-calc(0);
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-$panel-bg: scale-color(#B5E7F5, $lightness: 50%);
+$panel-bg: scale-color($primary-color, $lightness: 75%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -1324,6 +1324,10 @@ select.date { width: 95px; }
 
 .map {
 	padding: 20px 0px 20px 0px;
+}
+
+.hidden {
+	display: none !important;
 }
 
 @import 'foundation';

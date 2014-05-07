@@ -13,6 +13,7 @@
 				  <tr>
 				    <td><%= link_to registration.name, student_path(registration) %></td>
 				    <td><%= registration.rating.zero? ? "Unrated" : registration.rating %></td>
+						<td><%= link_to 'Edit', edit_registration_path(registration), class: "button tiny radius" %></td>
 				  </tr>
 				<% end %>
 			</table>
@@ -25,4 +26,8 @@
     <h5>No Registrations</h5>
   </div>
 	
+<% end %>
+
+<% if @is_upcoming && @camp.registrations.count < @camp.max_students %>
+	<%= render partial: "registration_form"%>
 <% end %>

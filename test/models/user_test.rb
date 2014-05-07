@@ -62,6 +62,11 @@ class UserTest < ActiveSupport::TestCase
       assert @mark_user.role?(:admin)
       deny @mark_user.role?(:instructor)
     end
+    
+    should "have an authenticate class method" do
+      assert User.authenticate(@mark_user.username, "secret")
+      deny User.authenticate(@mark_user.username, "notsecret")
+    end
 
   end
 end

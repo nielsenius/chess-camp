@@ -79,6 +79,11 @@ class LocationTest < ActiveSupport::TestCase
       klingon_city = FactoryGirl.build(:location, name: "Quin'lat", state: "Qo'noS")
       deny klingon_city.valid?, "#{klingon_city.to_yaml}"
     end
+    
+    should "have a method to produce a map link" do
+      zoom, width, height = 15, 800, 800
+      assert_equal @cmu.create_map_link(zoom, width, height), "http://maps.google.com/maps/api/staticmap?center= #{@cmu.latitude},#{@cmu.longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap&sensor=false&markers=color:red%7Ccolor:red%7Clabel:#{@cmu.name}%7C#{@cmu.latitude},#{@cmu.longitude}"
+    end
 
   end
 

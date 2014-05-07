@@ -13,6 +13,12 @@ class CampsController < ApplicationController
   def show
     @instructors = @camp.instructors.alphabetical.to_a
     @registrations = @camp.students.alphabetical.to_a
+    @is_upcoming = Camp.upcoming.to_a.include? @camp
+    
+    @registration = Registration.new
+    min_rating = @camp.curriculum.min_rating
+    max_rating = @camp.curriculum.max_rating + 1
+    @eligible_students = Student.active.below_rating(max_rating).at_or_above_rating(min_rating).alphabetical.to_a.map { |s| [s.name, s.id] }
   end
 
   def new

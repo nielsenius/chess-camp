@@ -7,3 +7,4 @@ Notes:
 	* Delete all history regarding localhost
 	* Set your browser to Private Browsing (do not record history)
 	* Prof. H. is aware of this bug; he helped me find/fix it
+* Location tests occassionally error (likely geocoding errors)
