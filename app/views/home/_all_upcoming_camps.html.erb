@@ -1,0 +1,38 @@
+<h3>All Upcoming Camps</h3>
+<table class="table">
+
+  <tr>
+    <th>Name</th>
+    <th>Start On</th>
+    <th>Time</th>
+    <th>Instructors</th>
+    <th>Students</th>
+  </tr>
+
+<% @all_upcoming_camps.each do |camp| %>
+  <tr>
+    <td><%= link_to camp.name, camp_summary_path(camp) %></td>
+    <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
+    <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
+		<td>
+			<ul class="side-nav">
+				<% camp.instructors.alphabetical.each do |instructor| %>
+					<li><%= link_to instructor.name, instructor_path(instructor) %></li>
+				<% end %>
+			</ul>
+		</td>
+		<td>
+			<ul class="side-nav">
+				<% camp.students.alphabetical.each do |student| %>
+					<li><%= link_to student.name, student_path(student) %></li>
+				<% end %>
+			</ul>
+		</td>
+  </tr>
+<% end %>
+
+</table>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+	<%= will_paginate @all_upcoming_camps, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+</span>

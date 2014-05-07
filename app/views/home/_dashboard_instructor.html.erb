@@ -1,0 +1,25 @@
+<h3>About&nbsp;<%= @instructor.proper_name %></h3><br />
+
+<%= @instructor.picture_url.nil? ? "No Picture Available" : image_tag(@instructor.picture_url) %><br /><br />
+
+<strong>Biography</strong><br />
+  <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
+
+<strong>Phone:&nbsp;&nbsp;</strong> 
+  <%= number_to_phone(@instructor.phone) %><br /><br />
+
+<strong>Email:&nbsp;&nbsp;</strong> 
+  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @instructor.active ? "Yes" : "No" %><br /><br />
+	
+<strong>Role:&nbsp;&nbsp;</strong>
+  <%= @instructor.user.role %><br /><br />
+	
+<strong>Username:&nbsp;&nbsp;</strong>
+  <%= @instructor.user.username %><br /><br />
+
+
+<%= link_to "Edit My Info", edit_instructor_path(@instructor), class: "button radius" %>&nbsp;&nbsp;
+<%= link_to "Log Out", logout_path, class: "button radius" %>

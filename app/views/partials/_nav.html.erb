@@ -13,13 +13,14 @@
 							<%= render "partials/admin_tools" %>
 						<% end %>
 		      	<li class="has-form">
-							<%= link_to(current_user.instructor.proper_name, logout_path, class: "small button") %>
+							<%= link_to(current_user.instructor.proper_name, dashboard_path, class: "small button") %>
 						</li>
 				  <% else %>
 		      	<li class="has-form">
 							<%= link_to('Log In', login_path, class: "small button") %>
 						</li>
 				  <% end %>
+					
 		    </ul>
 		  </section>
     </nav>
