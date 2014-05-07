@@ -16,11 +16,33 @@
 			<li><%= link_to('Curriculums', curriculums_path) %></li>
 		<% end %>
 		
+		<!-- families -->
+		<% if request.original_url.include?('families') %>
+    	<li class="active"><%= link_to('Families', families_path) %></li>
+		<% else %>
+			<li><%= link_to('Families', families_path) %></li>
+		<% end %>
+		
 		<!-- instructors -->
 		<% if request.original_url.include?('instructors') %>
     	<li class="active"><%= link_to('Instructors', instructors_path) %></li>
 		<% else %>
 			<li><%= link_to('Instructors', instructors_path) %></li>
 		<% end %>
+		
+		<!-- locations -->
+		<% if request.original_url.include?('locations') %>
+    	<li class="active"><%= link_to('Locations', locations_path) %></li>
+		<% else %>
+			<li><%= link_to('Locations', locations_path) %></li>
+		<% end %>
+		
+		<!-- students -->
+		<% if request.original_url.include?('students') %>
+    	<li class="active"><%= link_to('Students', students_path) %></li>
+		<% else %>
+			<li><%= link_to('Students', students_path) %></li>
+		<% end %>
+		
   </ul>
 </li>

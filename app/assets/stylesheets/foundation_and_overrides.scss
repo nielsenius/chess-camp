@@ -1145,13 +1145,13 @@ $topbar-margin-bottom: 20px;
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color: white;
-$topbar-link-color-hover: black;
+$topbar-link-color-hover: white;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
 $topbar-link-font-size: rem-calc(18);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg-hover: white;
+$topbar-link-bg-hover: $primary-color;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 $topbar-link-font-family: $header-font-family;
@@ -1320,6 +1320,10 @@ select.date { width: 95px; }
 //	a:visited { color: $primary-color; }
 	a:hover { text-decoration: underline; }
 	a:active { text-decoration: underline; }
+}
+
+.map {
+	padding: 20px 0px 20px 0px;
 }
 
 @import 'foundation';

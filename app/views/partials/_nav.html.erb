@@ -11,11 +11,9 @@
 				  <% if logged_in? %>
 						<% if current_user.role == 'admin' %>
 							<%= render "partials/admin_tools" %>
-						<% else %>
-							<%= render "partials/instructor_tools" %>
 						<% end %>
 		      	<li class="has-form">
-							<%= link_to("Log Out, #{current_user.instructor.proper_name}", logout_path, class: "small button") %>
+							<%= link_to(current_user.instructor.proper_name, logout_path, class: "small button") %>
 						</li>
 				  <% else %>
 		      	<li class="has-form">
