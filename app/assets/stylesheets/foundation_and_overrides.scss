@@ -1257,6 +1257,12 @@ select.date { width: 95px; }
 	// position: relative;
 	// max-height: 50%;
 	padding-bottom: 450px;
+//	width: 100%;
+//	min-height: 100%;
+//	position: relative;
+//  background: image-url('cover.jpg') no-repeat center center fixed;
+//  background-size: cover;
+//	clear: both;
 }
 
 #cover img {
@@ -1264,6 +1270,13 @@ select.date { width: 95px; }
 	position: absolute;
   clip: rect(auto auto 600px auto);
 	top: 50px;
+	bottom: 0;
+	right: 0;
+}
+
+#notice {
+	position: absolute;
+	z-index: 1;
 }
 
 #welcome {
