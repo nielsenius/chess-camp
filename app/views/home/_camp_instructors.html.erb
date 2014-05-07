@@ -4,13 +4,8 @@
     <h5>Instructors</h5>
     <ul class="side-nav">
       <% @instructors.each do |instructor| %>
-        <li><strong>Name:</strong></li>
-				<li><%= instructor.proper_name %></li>
-				<% if instructor.picture.blank? %>
-					<li>No Picture Available</li>
-				<% else %>
-					<li><%= image_tag instructor.picture %></li>
-				<% end %>
+				<li><%= instructor.picture_url.nil? ? "No Picture Available" : image_tag(instructor.picture_url) %></li>
+        <li><strong>Name:</strong>&nbsp;&nbsp;<%= instructor.proper_name %></li>
 				<li><strong>Bio:</strong></li>
 				<li><%= instructor.bio %></li>
 				<% if instructor != @instructors.last%>

@@ -1,4 +1,7 @@
 <h3>Instructor Details</h3><br />
+
+<%= @instructor.picture_url.nil? ? "No Picture Available" : image_tag(@instructor.picture_url) %><br /><br />
+
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
 

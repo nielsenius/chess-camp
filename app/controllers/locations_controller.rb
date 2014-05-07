@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   end
 
   def show
+    @camps = @location.camps
   end
 
   def new
