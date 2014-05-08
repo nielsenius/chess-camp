@@ -13,6 +13,6 @@
   <div class="small-4 columns">
     <!-- SIDEBAR CONTENT GOES HERE -->
 		<%= render partial: "dashboard_my_camps" %>
-		<%= render partial: "report_generator" %>
+		<%= render partial: "report_generator" if current_user.role == "admin" %>
   </div>
 </div>

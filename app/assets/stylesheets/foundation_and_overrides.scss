@@ -1329,8 +1329,8 @@ select.date { width: 95px; }
   height: 112px; /* Height of the footer */
 	background-color: $secondary-color;
 	color: black;
-//	a:link { color: $primary-color; }
-//	a:visited { color: $primary-color; }
+	a:link { color: $primary-color; }
+	a:visited { color: $primary-color; }
 	a:hover { text-decoration: underline; }
 	a:active { text-decoration: underline; }
 }

@@ -20,5 +20,5 @@
 <strong>Map:</strong>
 	<div class="map"><%= image_tag @location.create_map_link %></div>
 
-<%# link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
-<%# link_to 'Destroy camp', camp_path(@camp), data: { confirm: 'Are you sure you want to permanently remove this camp from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<%= link_to "Edit Location", edit_location_path(@location), class: "button radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy Location', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button radius alert" %>
