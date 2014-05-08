@@ -1,0 +1,81 @@
+<% if @type == "camp" %>
+
+	<h2>Payments for&nbsp;<%= @camp.name %></h2>
+	<table class="table">
+
+	  <tr>
+	    <th>Student</th>
+	    <th>Paid</th>
+	    <th>Owed</th>
+	  </tr>
+
+		<% @camp.registrations.each do |registration| %>
+		  <tr>
+		    <td><%= registration.student.name %></td>
+		    <td align="center"><%= registration.payment_status == 'full' ? number_to_currency(@camp.cost) : "$50.00" %></td>
+		    <td align="center"><%= registration.payment_status == 'full' ? "$0.00" : number_to_currency(@camp.cost - 50) %></td>
+		  </tr>
+		<% end %>
+
+	</table>
+
+	<h5>Total Paid:&nbsp;<%= number_to_currency @paid %></h5>
+	<h5>Total Owed:&nbsp;<%= number_to_currency @owed %></h5>
+
+<% elsif @type == "family" %>
+
+	<h2>Payments for&nbsp;<%= @family.family_name %>&nbsp;in&nbsp;<%= @year %></h2>
+	<table class="table">
+
+	  <tr>
+	    <th>Camp</th>
+			<th>Student</th>
+	    <th>Paid</th>
+	    <th>Owed</th>
+	  </tr>
+
+		<% @family.students.each do |student| %>
+			<% student.registrations.each do |registration| %>
+			  <tr>
+					<td><%= registration.camp.name %></td>
+			    <td><%= registration.student.name %></td>
+			    <td align="center"><%= registration.payment_status == 'full' ? number_to_currency(registration.camp.cost) : "$50.00" %></td>
+			    <td align="center"><%= registration.payment_status == 'full' ? "$0.00" : number_to_currency(registration.camp.cost - 50) %></td>
+			  </tr>
+			<% end %>
+		<% end %>
+
+	</table>
+
+	<h5>Total Paid:&nbsp;<%= number_to_currency @paid %></h5>
+	<h5>Total Owed:&nbsp;<%= number_to_currency @owed %></h5>
+
+<% elsif @type = "camps" %>
+
+	<h2>Payments for camps in&nbsp;<%= @year %></h2>
+	<table class="table">
+
+	  <tr>
+	    <th>Camp</th>
+	    <th>Paid</th>
+	    <th>Owed</th>
+	  </tr>
+
+		<% @camps.each do |camp| %>
+		  <tr>
+				<td><%= camp.name %></td>
+		    <td align="center"><%= number_to_currency(camp.registrations.select { |r| r.payment_status == 'deposit' }.count * 50 + camp.registrations.select { |r| r.payment_status == 'full' }.count * camp.cost) %></td>
+		    <td align="center"><%= number_to_currency(camp.registrations.select { |r| r.payment_status == 'deposit' }.count * (camp.cost - 50)) %></td>
+		  </tr>
+		<% end %>
+		
+	</table>
+		
+	<h5>Total Paid:&nbsp;<%= number_to_currency @paid %></h5>
+	<h5>Total Owed:&nbsp;<%= number_to_currency @owed %></h5>
+
+<% else %>
+
+	<h2>Please select a report type.</h2>
+
+<% end %>

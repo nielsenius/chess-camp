@@ -3,7 +3,7 @@
     <!-- MAIN CONTENT GOES HERE -->
 		<h2>User Dashboard</h2><br />
     <%= render partial: "dashboard_instructor" %>
-		<%= render partial: "all_upcoming_camps" %>
+		<%= render partial: "all_upcoming_camps" if current_user.role == "admin" %>
   </div>
 
   <div class="small-1 columns">
@@ -13,5 +13,6 @@
   <div class="small-4 columns">
     <!-- SIDEBAR CONTENT GOES HERE -->
 		<%= render partial: "dashboard_my_camps" %>
+		<%= render partial: "report_generator" %>
   </div>
 </div>

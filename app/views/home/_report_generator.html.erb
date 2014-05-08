@@ -1,0 +1,14 @@
+<div class="panel clearfix">
+  <h5>Report Generator</h5><br />
+	
+	<%= simple_form_for report_path do |f| %>
+		
+		<%= f.input :type, collection: [["Payments for a camp", :camp], ["Yearly payments for a family", :family], ["Yearly payments for all camps", :camps]], prompt: "Select report type..." %>
+		<%= f.input :camp, required: false, label: "Camp: Required for 'Payments for a camp'", collection: @all_active_camps, prompt: "Select camp..." %>
+		<%= f.input :year, required: false, label: "Year: Required for 'Yearly payments...'", as: :date, order: [:year] %>
+		<%= f.input :family, required: false, label: "Family: Required for 'Payments for a family'", collection: @all_active_families, prompt: "Select family..." %>
+		<%= f.button :submit, "Generate", class: "button radius" %>
+	
+	<% end %>
+	
+</div>

@@ -20,30 +20,43 @@
 </div>
 
 <div class="row">
-	<div class="small-12 columns" id="index_camps">
-		<h1>Upcoming Camps</h1>
-		<table class="table">
-		
-		  <tr>
-		    <th width="260">Name</th>
-		    <th width="120">Start On</th>
-		    <th width="120">Time</th>
-		    <th></th>
-		    <th></th>
-		  </tr>
-
-		<% @upcoming_camps.each do |camp| %>
-		  <tr>
-		    <td><%= link_to camp.name, camp_summary_path(camp) %></td>
-		    <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
-		    <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-		  </tr>
-		<% end %>
 	
-		</table>
-		<!-- Add the pagination using will_paginate gem -->
-		<span class="paginate">
-		<%= will_paginate @upcoming_camps, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
-		</span>
-	</div>
+	<% if @upcoming_camps.any? %>
+	
+		<div class="small-12 columns" id="index_camps">
+			<h1>Upcoming Camps</h1>
+			<table class="table">
+		
+			  <tr>
+			    <th width="200">Name</th>
+			    <th width="100">Start On</th>
+			    <th width="100">Time</th>
+			    <th width="150">Location</th>
+			    <th width="100">Availability</th>
+			  </tr>
+
+			<% @upcoming_camps.each do |camp| %>
+			  <tr>
+			    <td><%= link_to camp.name, camp_summary_path(camp) %></td>
+			    <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
+			    <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
+					<td align="center"><%= camp.location.name %></td>
+					<td align="center"><%= camp.registrations.count < camp.max_students ? "Open" : "Full" %></td>
+			  </tr>
+			<% end %>
+	
+			</table>
+			<!-- Add the pagination using will_paginate gem -->
+			<span class="paginate">
+			<%= will_paginate @upcoming_camps, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+			</span>
+		</div>
+	
+	<% else %>
+	
+		<div class="small-12 columns" id="index_camps">
+			<h1>No Upcoming Camps</h1>
+		</div>
+	
+	<% end %>
 </div>
